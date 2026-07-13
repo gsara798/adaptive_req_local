@@ -30,7 +30,7 @@ assert(ismember(CFG.Mode, ["validate_only","quick","full"]), ...
     'ADAPTIVE_REQ_EIKONAL_STAGE_C_MODE must be validate_only, quick, or full.');
 CFG.ForceRebuild = env_true('ADAPTIVE_REQ_EIKONAL_STAGE_C_FORCE_REBUILD', false);
 CFG.UseSourceParfor = env_true('ADAPTIVE_REQ_EIKONAL_STAGE_C_USE_SOURCE_PARFOR', true);
-CFG.UseWindowParfor = env_true('ADAPTIVE_REQ_EIKONAL_STAGE_C_USE_WINDOW_PARFOR', false);
+CFG.UseWindowParfor = env_true('ADAPTIVE_REQ_EIKONAL_STAGE_C_USE_WINDOW_PARFOR', true);
 CFG.UseParallel = CFG.UseSourceParfor || CFG.UseWindowParfor;
 CFG.CacheVersion = 1;
 
