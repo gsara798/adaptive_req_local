@@ -1,0 +1,86 @@
+{
+  "Name": "stage_A_homogeneous_transfer",
+  "Objective": "Zero-shot transfer of frozen baseline_minimal_v1 models to clean homogeneous Eikonal simulations.",
+  "AdaptiveReqRoot": "/Users/sara/local/adaptive_req_local",
+  "WaveSimProjectRoot": "/Users/sara/local/wave_sim_project_clean",
+  "ModelBundlePath": "outputs/baseline_minimal_v1/models/baseline_minimal_v1_q_models.mat",
+  "OutputRoot": "outputs/eikonal_validation/stage_A_homogeneous_transfer",
+  "Geometries": [
+    {"id": "homogeneous_cs2", "true_sws": 2.0},
+    {"id": "homogeneous_cs3", "true_sws": 3.0},
+    {"id": "homogeneous_cs4", "true_sws": 4.0}
+  ],
+  "FrequenciesHz": [300, 400, 500, 600],
+  "RealismLevels": ["clean"],
+  "FieldRegimes": ["single_source_lateral", "diffuse_like_8src_layout1", "diffuse_like_8src_layout2"],
+  "MList": [2],
+  "Simulation": {
+    "Lx_m": 0.05,
+    "Lz_m": 0.05,
+    "dx_m": 0.0002,
+    "dz_m": 0.0002,
+    "PhaseModel": "eikonal",
+    "GeometricDecayPower": 0.5,
+    "MeasurementPlaneY_m": 0.0,
+    "MeasurementAxis": [0, 0, 1],
+    "MotionDirection": [0, 0, 1],
+    "UsePointSources": true,
+    "AmplitudeNormalization": "rms_to_one",
+    "NormalizeFieldAmplitude": true
+  },
+  "REQ": {
+    "cs_guess": 3.0,
+    "TargetStepM": 0.001,
+    "EdgeMode": "valid",
+    "Nbins": "auto",
+    "Nbins_min": 16,
+    "Nbins_auto_oversample": 1,
+    "smooth_sigma": 1,
+    "Gamma": 1,
+    "PadFactor": 1
+  },
+  "RunModes": {
+    "validate_only": {
+      "Geometries": ["homogeneous_cs2"],
+      "FrequenciesHz": [300],
+      "FieldRegimes": ["single_source_lateral"],
+      "MList": [2]
+    },
+    "quick": {
+      "Geometries": ["homogeneous_cs2"],
+      "FrequenciesHz": [300],
+      "FieldRegimes": ["single_source_lateral", "diffuse_like_8src_layout1"],
+      "MList": [2]
+    },
+    "full": {
+      "Geometries": ["homogeneous_cs2", "homogeneous_cs3", "homogeneous_cs4"],
+      "FrequenciesHz": [300, 400, 500, 600],
+      "FieldRegimes": ["single_source_lateral", "diffuse_like_8src_layout1", "diffuse_like_8src_layout2"],
+      "MList": [2]
+    }
+  },
+  "SourceLayouts": {
+    "single_source_lateral": {
+      "source_seed": 0,
+      "phase_seed": 0,
+      "description": "One in-plane point source left of the x-z domain at y=0."
+    },
+    "diffuse_like_8src_layout1": {
+      "source_seed": 6601,
+      "phase_seed": 6601,
+      "description": "Balanced/cardinal eight-source layout with four in-plane and four off-plane sources."
+    },
+    "diffuse_like_8src_layout2": {
+      "source_seed": 6602,
+      "phase_seed": 6602,
+      "description": "Rotated/jittered eight-source layout with four in-plane and four off-plane sources."
+    }
+  },
+  "Figures": {
+    "SaveRepresentativeMaps": true,
+    "RepresentativeGeometries": ["homogeneous_cs2", "homogeneous_cs4"],
+    "RepresentativeFrequenciesHz": [300, 600],
+    "SaveSourceGeometry": true,
+    "SaveCentralSpectrum": true
+  }
+}

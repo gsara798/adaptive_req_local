@@ -1,0 +1,9 @@
+{
+  "Nbins": "auto",
+  "Nbins_auto_oversample": 1,
+  "Nbins_min": 16,
+  "SmoothSigma": 1,
+  "Gamma": 1,
+  "PadFactor": 1,
+  "EdgeMode": "valid"
+}

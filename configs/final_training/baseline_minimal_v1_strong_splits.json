@@ -1,0 +1,51 @@
+{
+  "Name": "baseline_minimal_v1_strong_splits",
+  "InputDataset": "outputs/baseline_minimal_v1/data/baseline_minimal_v1_dataset.mat",
+  "BaselineOutput": "outputs/baseline_minimal_v1",
+  "OutputName": "baseline_minimal_v1_strong_splits",
+  "Models": [
+    "q_spectrum_only",
+    "q_spectrum_plus_composition"
+  ],
+  "TrainFraction": 0.70,
+  "GroupedSeeds": [53053, 53054, 53055, 53056, 53057],
+  "QuickGroupedSeeds": [53053],
+  "Splits": {
+    "GroupedConditionRepeated": true,
+    "LeaveOneFrequencyOut": true,
+    "LeaveOneGeometryFamilyOut": true,
+    "FieldRegimeWithinFamilyOOD": true,
+    "LeaveFieldFamilyOut": true,
+    "LeaveOneMOut": false
+  },
+  "QuickSplits": {
+    "GroupedConditionRepeated": true,
+    "LeaveOneFrequencyOut": true,
+    "LeaveOneGeometryFamilyOut": true,
+    "FieldRegimeWithinFamilyOOD": true,
+    "LeaveFieldFamilyOut": false,
+    "LeaveOneMOut": false
+  },
+  "QuickGeometryFamilies": [
+    "bilayer",
+    "inclusion"
+  ],
+  "MaxRowsForModelTraining": 200000,
+  "MaxRowsForModelEvaluation": 200000,
+  "QuickMaxRowsForModelTraining": 50000,
+  "QuickMaxRowsForModelEvaluation": 50000,
+  "TreeLearners": 180,
+  "QuickTreeLearners": 80,
+  "MinLeafSize": 8,
+  "UseParallelTraining": true,
+  "SaveFoldModels": false,
+  "SavePatchPredictions": true,
+  "PatchPredictionFormat": "per_fold",
+  "MaxExampleMaps": 24,
+  "RandomSeed": 53100,
+  "Notes": [
+    "Strong-split validation for reconstructed baseline_minimal_v1.",
+    "No REQ recomputation: uses the baseline_minimal_v1 feature dataset.",
+    "Auxiliary composition models are retrained inside each fold using fold train rows only."
+  ]
+}

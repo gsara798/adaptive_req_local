@@ -1,0 +1,49 @@
+# macOS / editor noise
+.DS_Store
+._*
+*.asv
+*.autosave
+*~
+
+# Generated analysis outputs and caches
+outputs/
+**/outputs/
+**/condition_cache/
+**/condition_features/
+**/field_cache/
+**/cache/
+
+# Heavy generated artifacts
+*.mat
+*.fig
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.mp4
+*.avi
+*.zip
+*.tar
+*.tar.gz
+*.h5
+*.hdf5
+
+# Large/generated tabular outputs
+*.csv
+*.tsv
+*.parquet
+
+# Logs from long MATLAB runs
+*.log
+runtime_log.txt
+
+# MATLAB / temporary files
+slprj/
+codegen/
+*.mex*
+# Backup/corrupt snapshots
+*.bak
+*.tmp
+*.corrupt_*
+

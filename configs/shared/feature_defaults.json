@@ -1,0 +1,37 @@
+{
+  "FeaturePolicy": "clean_spectral_operational_only",
+  "ForbiddenPredictorPatterns": [
+    "true",
+    "oracle",
+    "purity",
+    "mixed",
+    "confidence",
+    "error",
+    "pred",
+    "sws",
+    "cs_",
+    "k_true",
+    "q_local",
+    "q_pred",
+    "q_theory",
+    "req_mapping",
+    "patch_idx",
+    "map_ix",
+    "map_iz",
+    "cx",
+    "cz",
+    "x_center",
+    "z_center",
+    "condition",
+    "distance"
+  ],
+  "AllowedOperationalMetadata": [
+    "REQ_M",
+    "M",
+    "SIM_f0",
+    "f0",
+    "dx",
+    "dz",
+    "REQ_Nbins_effective"
+  ]
+}

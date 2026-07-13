@@ -1,0 +1,94 @@
+{
+  "Name": "stage_c_field_complexity",
+  "Objective": "Zero-shot clean Eikonal field-complexity transfer validation for frozen baseline_minimal_v1 q/SWS models.",
+  "AdaptiveReqRoot": "/Users/sara/local/adaptive_req_local",
+  "WaveSimProjectRoot": "/Users/sara/local/wave_sim_project_clean",
+  "ModelBundlePath": "outputs/baseline_minimal_v1/models/baseline_minimal_v1_q_models.mat",
+  "OutputRoot": "outputs/eikonal_validation/stage_c_field_complexity",
+  "FrequenciesHz": [300, 400, 500, 600],
+  "RealismLevels": ["clean"],
+  "FieldRegimes": [
+    "single_source_lateral",
+    "diffuse_like_4src_layoutA",
+    "diffuse_like_8src_layoutA",
+    "diffuse_like_16src_layoutA",
+    "diffuse_like_4src_layoutB",
+    "diffuse_like_8src_layoutB",
+    "diffuse_like_16src_layoutB"
+  ],
+  "MList": [2],
+  "Simulation": {
+    "Lx_m": 0.07,
+    "Lz_m": 0.07,
+    "dx_m": 0.0002,
+    "dz_m": 0.0002,
+    "PhaseModel": "eikonal",
+    "GeometricDecayPower": 0.5,
+    "MeasurementPlaneY_m": 0.0,
+    "MeasurementAxis": [0, 0, 1],
+    "MotionDirection": [0, 0, 1],
+    "AmplitudeNormalization": "central_rms_to_one",
+    "NormalizeFieldAmplitude": true,
+    "ValidRegionMarginM": 0.010
+  },
+  "Geometries": [
+    {"id": "homogeneous_cs3", "type": "homogeneous", "background_sws": 3.0, "inclusion_sws": 3.0, "inclusion_diameter_mm": 0},
+    {"id": "homogeneous_cs4", "type": "homogeneous", "background_sws": 4.0, "inclusion_sws": 4.0, "inclusion_diameter_mm": 0},
+    {"id": "inclusion_2_3_D24", "type": "inclusion", "background_sws": 2.0, "inclusion_sws": 3.0, "inclusion_diameter_mm": 24},
+    {"id": "inclusion_2_4_D24", "type": "inclusion", "background_sws": 2.0, "inclusion_sws": 4.0, "inclusion_diameter_mm": 24},
+    {"id": "bilayer_2_3", "type": "bilayer", "background_sws": 2.0, "inclusion_sws": 3.0, "inclusion_diameter_mm": 0}
+  ],
+  "REQ": {
+    "cs_guess": 3.0,
+    "TargetStepM": 0.001,
+    "EdgeMode": "valid",
+    "Nbins": "auto",
+    "Nbins_min": 16,
+    "Nbins_auto_oversample": 1,
+    "smooth_sigma": 1,
+    "Gamma": 1,
+    "PadFactor": 1
+  },
+  "ROI": {
+    "CoreMinDistanceMm": 4.0,
+    "BackgroundFarMinDistanceMm": 8.0,
+    "HomogeneousCenterHalfWidthMm": 12.0,
+    "InterfaceBandsMm": [[0,1], [1,2], [2,4], [4,8]]
+  },
+  "RunModes": {
+    "validate_only": {
+      "Geometries": ["homogeneous_cs3"],
+      "FrequenciesHz": [400],
+      "FieldRegimes": ["single_source_lateral", "diffuse_like_4src_layoutA"],
+      "MList": [2]
+    },
+    "quick": {
+      "Geometries": ["homogeneous_cs4", "inclusion_2_4_D24"],
+      "FrequenciesHz": [400, 600],
+      "FieldRegimes": ["single_source_lateral", "diffuse_like_4src_layoutA", "diffuse_like_8src_layoutA", "diffuse_like_16src_layoutA"],
+      "MList": [2]
+    },
+    "full": {
+      "Geometries": ["homogeneous_cs3", "homogeneous_cs4", "inclusion_2_3_D24", "inclusion_2_4_D24", "bilayer_2_3"],
+      "FrequenciesHz": [300, 400, 500, 600],
+      "FieldRegimes": ["single_source_lateral", "diffuse_like_4src_layoutA", "diffuse_like_8src_layoutA", "diffuse_like_16src_layoutA", "diffuse_like_4src_layoutB", "diffuse_like_8src_layoutB", "diffuse_like_16src_layoutB"],
+      "MList": [2]
+    }
+  },
+  "SourceLayouts": {
+    "single_source_lateral": {"source_seed": 0, "phase_seed": 0, "description": "One in-plane source left of the x-z domain at y=0."},
+    "diffuse_like_4src_layoutA": {"source_seed": 6704, "phase_seed": 6704, "N_sources": 4, "N_in_plane": 1, "layout_family": "A", "description": "Four-source shell layout with exactly one in-plane source."},
+    "diffuse_like_8src_layoutA": {"source_seed": 6708, "phase_seed": 6708, "N_sources": 8, "N_in_plane": 1, "layout_family": "A", "description": "Eight-source shell layout with exactly one in-plane source."},
+    "diffuse_like_16src_layoutA": {"source_seed": 6716, "phase_seed": 6716, "N_sources": 16, "N_in_plane": 1, "layout_family": "A", "description": "Sixteen-source shell layout with exactly one in-plane source."},
+    "diffuse_like_4src_layoutB": {"source_seed": 6804, "phase_seed": 6804, "N_sources": 4, "N_in_plane": 1, "layout_family": "B", "description": "Four-source practical layout with one in-plane source."},
+    "diffuse_like_8src_layoutB": {"source_seed": 6808, "phase_seed": 6808, "N_sources": 8, "N_in_plane": 2, "layout_family": "B", "description": "Eight-source practical layout with two in-plane sources."},
+    "diffuse_like_16src_layoutB": {"source_seed": 6816, "phase_seed": 6816, "N_sources": 16, "N_in_plane": 4, "layout_family": "B", "description": "Sixteen-source practical layout with four in-plane sources."}
+  },
+  "Figures": {
+    "SaveRepresentativeMaps": true,
+    "RepresentativeGeometries": ["homogeneous_cs4", "inclusion_2_4_D24", "bilayer_2_3"],
+    "RepresentativeFrequenciesHz": [400],
+    "RepresentativeFieldRegimes": ["single_source_lateral", "diffuse_like_16src_layoutA"],
+    "SaveSourceGeometry": true
+  }
+}
