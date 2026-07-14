@@ -151,6 +151,11 @@ Issues and pull requests are welcome, particularly for:
 
 For a reproducible bug report, include the MATLAB release, operating system, configuration file, Git commit, and the smallest example that demonstrates the problem.
 
+## License
+
+This project is licensed under the Apache License 2.0. See the
+[LICENSE](LICENSE) file for details.
+
 ## Maintainer
 
 **Sara Gómez** — [@gsara798](https://github.com/gsara798)
