@@ -163,4 +163,4 @@ This project is distributed under the [Apache License 2.0](LICENSE).
 
 ## Maintainer
 
-**Sara Gómez** — [@gsara798](https://github.com/gsara798)
+**Sara Gomez-Ramirez** — [@gsara798](https://github.com/gsara798)
