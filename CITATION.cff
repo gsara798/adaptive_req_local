@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite the repository and the associated REQ publication when available."
+title: "Adaptive REQ"
+abstract: >-
+  MATLAB research software for adaptive radial energy-quantile estimation
+  and local shear-wave-speed mapping in harmonic shear-wave elastography.
+authors:
+  - family-names: "Gómez"
+    given-names: "Sara"
+    alias: "gsara798"
+repository-code: "https://github.com/gsara798/adaptive_req_local"
+url: "https://github.com/gsara798/adaptive_req_local"
+license: "Apache-2.0"
+type: software
+keywords:
+  - elastography
+  - shear-wave elastography
+  - quantitative ultrasound
+  - wavenumber estimation
+  - radial spectrum
+  - MATLAB
+  - medical imaging

@@ -151,10 +151,15 @@ Issues and pull requests are welcome, particularly for:
 
 For a reproducible bug report, include the MATLAB release, operating system, configuration file, Git commit, and the smallest example that demonstrates the problem.
 
+## Citation
+
+If you use this software in research, please cite the repository using the
+metadata in [`CITATION.cff`](CITATION.cff). Once the associated REQ manuscript
+has a final bibliographic record, its citation should also be included here.
+
 ## License
 
-This project is licensed under the Apache License 2.0. See the
-[LICENSE](LICENSE) file for details.
+This project is distributed under the [Apache License 2.0](LICENSE).
 
 ## Maintainer
 
