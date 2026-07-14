@@ -5,7 +5,7 @@ abstract: >-
   MATLAB research software for adaptive radial energy-quantile estimation
   and local shear-wave-speed mapping in harmonic shear-wave elastography.
 authors:
-  - family-names: "Gómez"
+  - family-names: "Gomez-Ramirez"
     given-names: "Sara"
     alias: "gsara798"
 repository-code: "https://github.com/gsara798/adaptive_req_local"
