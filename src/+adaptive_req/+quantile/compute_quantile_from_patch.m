@@ -281,9 +281,23 @@ end
 
 function Srad = radial_average_power_precomputed(Ssm, radial_bin, Nbins)
 
-w = Ssm(:);
-valid = ~isnan(radial_bin) & isfinite(w);
-Srad = accumarray(radial_bin(valid), w(valid), [Nbins, 1], @mean, 0);
+% KWSIM commonly exports single-precision fields. Convert the spectral
+% samples explicitly to double so accumarray's reduction output and fill
+% value have the same class. The non-precomputed radial-average path also
+% returns double precision.
+w = double(Ssm(:));
+
+valid = ...
+    ~isnan(radial_bin) & ...
+    isfinite(w);
+
+Srad = accumarray( ...
+    double(radial_bin(valid)), ...
+    w(valid), ...
+    [Nbins, 1], ...
+    @mean, ...
+    0);
+
 Srad = Srad(:).';
 
 end
